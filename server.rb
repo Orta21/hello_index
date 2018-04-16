@@ -1,9 +1,12 @@
 require "sinatra"
 
+set :public_folder, File.dirname(__FILE__) + '/static'
+set :static_cache_control, -1
+
 get '/' do
-  "hello world"
+  send_file "index.html"
 end
 
-get '/sinatra' do
-  "Hello Sinatra"
+get '/index.html' do
+  send_file "index.html"
 end 
